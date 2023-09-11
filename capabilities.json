@@ -1,6 +1,5 @@
 {
-    "dataRoles": [
-        {
+    "dataRoles": [{
             "name": "Y",
             "kind": "Measure",
             "displayName": "Value",
@@ -106,8 +105,7 @@
                     "description": "Scale to measure data in the gauge",
                     "placeHolderText": "Linear",
                     "type": {
-                        "enumeration": [
-                            {
+                        "enumeration": [{
                                 "value": "Linear",
                                 "displayName": "Linear"
                             },
@@ -128,8 +126,7 @@
                     "description": "Changes default colors used by the ranges",
                     "placeHolderText": "Red/Green/Red",
                     "type": {
-                        "enumeration": [
-                            {
+                        "enumeration": [{
                                 "value": "Red/Green/Red",
                                 "displayName": "Red/Green/Red"
                             },
@@ -464,6 +461,13 @@
                         "bool": true
                     }
                 },
+                "showRangeLabels": {
+                    "displayName": "Range Labels",
+                    "description": "Show labels on range arcs",
+                    "type": {
+                        "bool": true
+                    }
+                },
                 "color": {
                     "displayName": "Color",
                     "type": {
@@ -512,6 +516,7 @@
                         "numeric": true
                     }
                 },
+
                 "reduce": {
                     "displayName": "Reduce",
                     "description": "Reduce the number of labels",
@@ -634,8 +639,7 @@
                     "description": "The base of 100%",
                     "placeHolderText": "EndValue",
                     "type": {
-                        "enumeration": [
-                            {
+                        "enumeration": [{
                                 "value": "EndValue",
                                 "displayName": "End Value"
                             },
@@ -701,117 +705,112 @@
             }
         }
     },
-    "dataViewMappings": [
-        {
-            "conditions": [
-                {
-                    "Y": {
-                        "min": 0,
-                        "max": 1
-                    },
-                    "StartValue": {
-                        "min": 0,
-                        "max": 1
-                    },
-                    "EndValue": {
-                        "min": 0,
-                        "max": 1
-                    },
-                    "TargetValue": {
-                        "min": 0,
-                        "max": 1
-                    },
-                    "Range2StartValue": {
-                        "min": 0,
-                        "max": 1
-                    },
-                    "Range3StartValue": {
-                        "min": 0,
-                        "max": 1
-                    },
-                    "Range4StartValue": {
-                        "min": 0,
-                        "max": 1
-                    },
-                    "Range5StartValue": {
-                        "min": 0,
-                        "max": 1
-                    },
-                    "Range6StartValue": {
-                        "min": 0,
-                        "max": 1
-                    },
-                    "Range7StartValue": {
-                        "min": 0,
-                        "max": 1
-                    },
-                    "DisplayFilter": {
-                        "min": 0,
-                        "max": 1
-                    }
-                }
-            ],
-            "categorical": {
-                "values": {
-                    "select": [
-                        {
-                            "bind": {
-                                "to": "Y"
-                            }
-                        },
-                        {
-                            "bind": {
-                                "to": "StartValue"
-                            }
-                        },
-                        {
-                            "bind": {
-                                "to": "EndValue"
-                            }
-                        },
-                        {
-                            "bind": {
-                                "to": "TargetValue"
-                            }
-                        },
-                        {
-                            "bind": {
-                                "to": "Range2StartValue"
-                            }
-                        },
-                        {
-                            "bind": {
-                                "to": "Range3StartValue"
-                            }
-                        },
-                        {
-                            "bind": {
-                                "to": "Range4StartValue"
-                            }
-                        },
-                        {
-                            "bind": {
-                                "to": "Range5StartValue"
-                            }
-                        },
-                        {
-                            "bind": {
-                                "to": "Range6StartValue"
-                            }
-                        },
-                        {
-                            "bind": {
-                                "to": "Range7StartValue"
-                            }
-                        },
-                        {
-                            "bind": {
-                                "to": "DisplayFilter"
-                            }
+    "dataViewMappings": [{
+        "conditions": [{
+            "Y": {
+                "min": 0,
+                "max": 1
+            },
+            "StartValue": {
+                "min": 0,
+                "max": 1
+            },
+            "EndValue": {
+                "min": 0,
+                "max": 1
+            },
+            "TargetValue": {
+                "min": 0,
+                "max": 1
+            },
+            "Range2StartValue": {
+                "min": 0,
+                "max": 1
+            },
+            "Range3StartValue": {
+                "min": 0,
+                "max": 1
+            },
+            "Range4StartValue": {
+                "min": 0,
+                "max": 1
+            },
+            "Range5StartValue": {
+                "min": 0,
+                "max": 1
+            },
+            "Range6StartValue": {
+                "min": 0,
+                "max": 1
+            },
+            "Range7StartValue": {
+                "min": 0,
+                "max": 1
+            },
+            "DisplayFilter": {
+                "min": 0,
+                "max": 1
+            }
+        }],
+        "categorical": {
+            "values": {
+                "select": [{
+                        "bind": {
+                            "to": "Y"
                         }
-                    ]
-                }
+                    },
+                    {
+                        "bind": {
+                            "to": "StartValue"
+                        }
+                    },
+                    {
+                        "bind": {
+                            "to": "EndValue"
+                        }
+                    },
+                    {
+                        "bind": {
+                            "to": "TargetValue"
+                        }
+                    },
+                    {
+                        "bind": {
+                            "to": "Range2StartValue"
+                        }
+                    },
+                    {
+                        "bind": {
+                            "to": "Range3StartValue"
+                        }
+                    },
+                    {
+                        "bind": {
+                            "to": "Range4StartValue"
+                        }
+                    },
+                    {
+                        "bind": {
+                            "to": "Range5StartValue"
+                        }
+                    },
+                    {
+                        "bind": {
+                            "to": "Range6StartValue"
+                        }
+                    },
+                    {
+                        "bind": {
+                            "to": "Range7StartValue"
+                        }
+                    },
+                    {
+                        "bind": {
+                            "to": "DisplayFilter"
+                        }
+                    }
+                ]
             }
         }
-    ]
+    }]
 }

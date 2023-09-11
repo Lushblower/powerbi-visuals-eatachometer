@@ -97,7 +97,7 @@ export class IndicatorVisualSettings {
     public baseThicknessFactor?: number = null;
 }
 
-export class LabelsVisualSettings {
+export class LabelsVisualSettings { 
     public show: boolean = true;
     public color: string = Tachometer.DefaultLabelColor;
     public fontSize?: number = 9;
@@ -105,6 +105,7 @@ export class LabelsVisualSettings {
     public labelPrecision?: number = null;
     public round?: boolean = true;
     public count?: number = null;
+    public showRangeLabels?: boolean = true;
     public reduce?: boolean = null;
 
     // Added back even though these are not display in the visual formatting settings.  Attempt to fix missing callout values.

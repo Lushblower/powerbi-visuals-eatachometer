@@ -119,6 +119,7 @@ export interface TachometerDataLabelsData {
     fontSize?: number;
     round?: boolean;
     count?: number;
+    showRangeLabels?: boolean;
     reduce?: boolean;
     offset?: Offset;
     formatter?: IValueFormatter;
@@ -2554,6 +2555,9 @@ export class Tachometer implements IVisual {
         if (this.showAxisLabels) {
             if (this.axisData.dataLabels.round) {
                 return this.createNiceRoundLabels();
+            }
+            else if(this.axisData.dataLabels.showRangeLabels) {
+                return this.createRangeLabels();
             } else {
                 return this.createEquallySpacedLabels();
             }
@@ -2849,6 +2853,9 @@ export class Tachometer implements IVisual {
             if (settings.round !== null && settings.round !== undefined) {
                 dataLabelsSettings.round = settings.round;
             }
+            if(settings.showRangeLabels !== null && settings.showRangeLabels !== undefined) {
+                dataLabelsSettings.showRangeLabels = settings.showRangeLabels;
+            }
 
             if (settings.reduce !== null && settings.reduce !== undefined) {
                 dataLabelsSettings.reduce = settings.reduce;
@@ -3086,15 +3093,54 @@ export class Tachometer implements IVisual {
 
         return axisLabels;
     }
+/*GENERATE RANGE LABELS */
+    private createRangeLabels(): TachometerAxisLabel[] {
+        let rangeLabels: TachometerAxisLabel[] = [];
+        let axisData = this.axisData;
+        let dataLabels: TachometerDataLabelsData = this.axisData.dataLabels;
+        // Show only the start and end values
+        let numberOfSteps = (Math.abs(axisData.valueRange) > 1) ? dataLabels.count - 1 : 1;
+  
+            
+        if (numberOfSteps > 0) {
+            let startAngle = axisData.startAngle;
+            let angleStep = axisData.angleRange / numberOfSteps;
+            let fontSizePx = dataLabels.fontSizePx;
+            let textHeight = PixelConverter.fromPointToPixel(dataLabels.fontSize);
+            let lastDisplayValue = '';
+            let lastAxisLabel: TachometerAxisLabel;
 
+            for (let i: number = 0; i <= numberOfSteps; i++) {
+                let angle = startAngle + (i * angleStep);
+                let value = this.axisScale.invert(angle);
+                let currentDisplayValue = dataLabels.formatter.format(value);
+
+                if (lastDisplayValue !== currentDisplayValue) {
+                    // to avoid repeating labels when they become rounded by Display Units
+                    let axisLabel = this.createAxisLabel(dataLabels.formatter.format(value), value, fontSizePx, textHeight, angle);
+
+                    if (this.isWithinBounds(axisLabel.rect) && 
+                        (!lastAxisLabel || (lastAxisLabel && !this.isOverlapping(lastAxisLabel.rect, axisLabel.rect))) && !this.isOverlappingWithCallout(axisLabel.rect)) {
+                        rangeLabels.push(axisLabel);
+                        lastDisplayValue = currentDisplayValue;
+                        lastAxisLabel = axisLabel;
+                    }
+                }
+            }
+        }
+
+        return rangeLabels;
+    }
+
+/*NUMBER OF LABELS createEquallySpacedLabels*/
     private createEquallySpacedLabels(): TachometerAxisLabel[] {
         let axisLabels: TachometerAxisLabel[] = [];
         let axisData = this.axisData;
         let dataLabels: TachometerDataLabelsData = this.axisData.dataLabels;
-
         // Show only the start and end values
         let numberOfSteps = (Math.abs(axisData.valueRange) > 1) ? dataLabels.count - 1 : 1;
-
+  
+            
         if (numberOfSteps > 0) {
             let startAngle = axisData.startAngle;
             let angleStep = axisData.angleRange / numberOfSteps;
@@ -3438,6 +3484,7 @@ export class Tachometer implements IVisual {
             precision: dataLabelUtils.defaultLabelPrecision,
             fontSize: Tachometer.defaultLabelFontSizeInPt,
             round: true,
+            showRangeLabels: true,
             count: undefined,
 
             // avoid overcrowding labels when log scale is used
@@ -4417,7 +4464,7 @@ export class Tachometer implements IVisual {
             selector: null,
             objectName: 'indicator',
             displayName: 'Indicator',
-            properties: <any>properties,
+            properties: <any>properties, 
         });
     }
 
@@ -4438,6 +4485,7 @@ export class Tachometer implements IVisual {
         // Show nicely rounded labels such as 100, 200 etc.
         instance.properties['round'] = labelSettings.round;
 
+        instance.properties['showRangeLabels'] = labelSettings.showRangeLabels;
         // Allow user to specify the number of ticks only if the axis settings:
         //     - are not initialized
         //     - scale is linear
