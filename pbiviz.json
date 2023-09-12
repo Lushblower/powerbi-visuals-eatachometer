@@ -1,18 +1,18 @@
 {
   "visual": {
     "name": "eaTachometer",
-    "displayName": "Tachometer by FEGRINET",
+    "displayName": "Tachometer by Lushblower",
     "guid": "eaTachometer6616D82ED23A4C048E1D3CD4604742ED",
     "visualClassName": "Tachometer",
-    "version": "3.6.0",
-    "description": "This is a modification of the Tachometer created by Indika Chamara (IC) Ranasinghe to allow for 7 ranges.  The original source can be found on GitHub with detailed descriptions of the 9 capability option groups https://github.com/ChamaraIC/Tachometer/blob/master/README.md\n",
-    "supportUrl": "https://github.com/EarnestAssoc/powerbi-visuals-eatachometer",
-    "gitHubUrl": "https://github.com/EarnestAssoc/powerbi-visuals-eatachometer"
+    "version": "3.8.0",
+    "description": "This is a modification of the Tachometer created by Indika Chamara (IC) Ranasinghe to allow for 7 ranges. The original source can be found on GitHub with detailed descriptions of the 9 capability option groups https://github.com/ChamaraIC/Tachometer/blob/master/README.md\n",
+    "supportUrl": "https://github.com/Lushblower/powerbi-visuals-tacometer",
+    "gitHubUrl": "https://github.com/Lushblower/powerbi-visuals-tacometer"
   },
   "apiVersion": "3.6.0",
   "author": {
-    "name": "Earnest & Associates, LLC.",
-    "email": "pasupport@earnestassoc.com"
+    "name": "Lushblower",
+    "email": "support@example.com"
   },
   "assets": {
     "icon": "assets/powerbi_icon.png"

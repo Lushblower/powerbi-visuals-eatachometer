@@ -1,23 +1,23 @@
 {
-  "name": "ea-powerbi-visuals-tachometer",
+  "name": "lushblower-powerbi-visuals-tacometer",
   "version": "2.6.0",
-  "description": "This is a modification of the Tachometer created by Indika Chamara (IC) Ranasinghe to allow for 7 ranges.  The original source can be found on GitHub with detailed descriptions of the 9 capability option groups https://github.com/ChamaraIC/Tachometer/blob/master/README.md\n",
+  "description": "This is a modification of the Tachometer created by Indika Chamara (IC) Ranasinghe to allow for 7 ranges and axis labels for each ranges.  The original source can be found on GitHub with detailed descriptions of the 9 capability option groups https://github.com/ChamaraIC/Tachometer/blob/master/README.md\n",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/EarnestAssoc/powerbi-visuals-eatachometer.git"
+    "url": "git+https://github.com/Lushblower/powerbi-visuals-tacometer.git"
   },
   "keywords": [
     "powerbi-visuals"
-  ],
+  ], 
   "author": {
-    "name": "Earnest & Associates, LLC.",
-    "email": "pasupport@earnestassoc.com"
+    "name": "Lushblower",
+    "email": "support@example.com"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/EarnestAssoc/powerbi-visuals-eatachometer/issues"
+    "url": "https://github.com/Lushblower/powerbi-visuals-tacometer/issues"
   },
-  "homepage": "https://github.com/EarnestAssoc/powerbi-visuals-eatachometer/blob/main/README.md",
+  "homepage": "https://github.com/Lushblower/powerbi-visuals-tacometer/blob/main/README.md",
   "scripts": {
     "pbiviz": "pbiviz",
     "start": "pbiviz start",
