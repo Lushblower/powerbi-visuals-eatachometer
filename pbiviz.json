@@ -2,7 +2,7 @@
   "visual": {
     "name": "eaTachometer",
     "displayName": "Tachometer by Lushblower",
-    "guid": "eaTachometer6616D82ED23A4C048E1D3CD4604742ED",
+    "guid": "LUTachometer6616D82ED23A4C048E1D3CD4604742ED",
     "visualClassName": "Tachometer",
     "version": "3.8.0",
     "description": "This is a modification of the Tachometer created by Indika Chamara (IC) Ranasinghe to allow for 7 ranges. The original source can be found on GitHub with detailed descriptions of the 9 capability option groups https://github.com/ChamaraIC/Tachometer/blob/master/README.md\n",
