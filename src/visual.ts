@@ -4364,12 +4364,12 @@ export class Tachometer implements IVisual {
     return rangeLabels;
   }
 
-  /*NUMBER OF LABELS createEquallySpacedLabels*/
   private createEquallySpacedLabels(): TachometerAxisLabel[] {
     let axisLabels: TachometerAxisLabel[] = [];
     let axisData = this.axisData;
     let dataLabels: TachometerDataLabelsData = this.axisData.dataLabels;
-    // Show only the start and end values
+
+    // Show only the start and end values in case of samll range
     let numberOfSteps =
       Math.abs(axisData.valueRange) > 1 ? dataLabels.count - 1 : 1;
 
@@ -6338,12 +6338,12 @@ export class Tachometer implements IVisual {
         ? this.axisData.dataLabels
         : Tachometer.getDefaultTachometerLabelSettings();
 
-    this.enumerateLabelInstance(instance, labelSettings);
-
+    instance.properties["showRangeLabels"] = labelSettings.showRangeLabels;
     // Show nicely rounded labels such as 100, 200 etc.
     instance.properties["round"] = labelSettings.round;
 
-    instance.properties["showRangeLabels"] = labelSettings.showRangeLabels;
+    this.enumerateLabelInstance(instance, labelSettings);
+
     // Allow user to specify the number of ticks only if the axis settings:
     //     - are not initialized
     //     - scale is linear
